@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class Turn : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class Turn : MonoBehaviour
     float rotationSpeed = 20.0f;
     float rotationResetSpeed = 20.0f;
     float rotationClamp = 30.0f;
-    float turnSpeed = 10.0f;
+    
 
     float turnSide;
 
@@ -21,13 +20,10 @@ public class Turn : MonoBehaviour
         originalRotation = transform.rotation;
     }
 
-    // Update is called once per frame
 
-    private void Update()
+    void Update()
     {
         turnSide = Input.GetAxis("Horizontal");
-
-        GetBackOnTrack();
     }
 
 
@@ -35,13 +31,21 @@ public class Turn : MonoBehaviour
     {
         if (turnSide != 0)
         {
-           
-            RotateTheCar();
+
             TurnTheCar();
+            //RotateTheCar();
+            
+            
             
 
         }
 
+    }
+      private void LateUpdate()
+    {
+       
+
+        GetBackOnTrack();
     }
 
         public void GetBackOnTrack()
@@ -56,18 +60,19 @@ public class Turn : MonoBehaviour
 
         }
 
-        void RotateTheCar()
+    void RotateTheCar()
     {
         Vector3 rotationVector = new Vector3();
 
-        if ((transform.rotation.eulerAngles.y < rotationClamp) || (transform.rotation.eulerAngles.y > (360f - rotationClamp)))
+        if ((transform.rotation.eulerAngles.z < rotationClamp) || (transform.rotation.eulerAngles.z > (360f - rotationClamp)))
         {
             rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
         }
 
-        if ((transform.rotation.eulerAngles.x < rotationClamp) || (transform.rotation.eulerAngles.x > (360f - rotationClamp)))
+        if ((transform.rotation.eulerAngles.y < rotationClamp) || (transform.rotation.eulerAngles.y> (360f - rotationClamp)))
         {
             rotationVector += new Vector3(0f, turnSide * rotationSpeed, 0f);
+            
         }
 
 
@@ -76,7 +81,11 @@ public class Turn : MonoBehaviour
 
     void TurnTheCar()
     {
-        rb.AddRelativeForce(turnSpeed * -turnSide, 0f, 0f);
+
+        gameObject.transform.eulerAngles = new Vector3(0f, turnSide, 0f);
+        //transform.RotateAround(transform.position, transform.up, turnSide);
+
+        //transform.rotation = Quaternion.Euler(0f, turnSide, 0f);
     }
     
 }

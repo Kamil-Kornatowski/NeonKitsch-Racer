@@ -31,7 +31,7 @@ public class Acceleration : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        KeepStraightPath();
+        //KeepStraightPath();
         MoveForward();
         Accelerate();
         
@@ -41,7 +41,7 @@ public class Acceleration : MonoBehaviour
 
     public void MoveForward()
     {
-        rb.AddRelativeForce(transform.forward);
+        rb.AddRelativeForce(-transform.forward);
     }
 
     public void Accelerate()
@@ -61,9 +61,10 @@ public class Acceleration : MonoBehaviour
     public void KeepStraightPath()
     {
         if (Input.GetAxis("Horizontal") == 0)
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         {
 
         }
     }
 }
+

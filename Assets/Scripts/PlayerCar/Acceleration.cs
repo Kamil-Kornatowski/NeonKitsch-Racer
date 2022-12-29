@@ -32,35 +32,36 @@ public class Acceleration : MonoBehaviour
     void FixedUpdate()
     {
         KeepStraightPath();
-        Accelerate();
         MoveForward();
+        Accelerate();
+        
         
     }
 
 
     public void MoveForward()
     {
-        rb.AddRelativeForce(-transform.forward);
+        rb.AddRelativeForce(transform.forward);
     }
 
     public void Accelerate()
     {
-        if (rb.velocity.z < maximumSpeed)
+        if (rb.velocity.z > MaximumSpeed)
         {
-            rb.velocity += -gameObject.transform.forward * (baseAcceleration + accelarationRate);
+            rb.velocity += gameObject.transform.forward * (baseAcceleration + accelarationRate);
             accelarationRate += 0.1f;
         }
 
         else
         {
             accelarationRate = 0f;
-            rb.velocity = new Vector3(rb.velocity.x, 0, maximumSpeed);
+            rb.velocity = new Vector3(rb.velocity.x, 0, -MaximumSpeed);
         }
     }
     public void KeepStraightPath()
     {
         if (Input.GetAxis("Horizontal") == 0)
-            rb.velocity = new Vector3(0, 0, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         {
 
         }

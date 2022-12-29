@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class Turn : MonoBehaviour
 {
-    public GameObject turnCenter;
-
-
     public Quaternion originalRotation;
-    float rotationSpeed = 10.0f;
+    float rotationSpeed = 20.0f;
     float rotationResetSpeed = 20.0f;
     float rotationClamp = 30.0f;
+    float turnSpeed = 10.0f;
 
     float turnSide;
 
-   // Rigidbody rb;
+    Rigidbody rb;
 
     void Start()
     {
-        
-        //rb = GetComponent<Rigidbody>();
+
+        rb = GetComponent<Rigidbody>();   
         originalRotation = transform.rotation;
     }
 
@@ -35,34 +33,50 @@ public class Turn : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (turnSide != 0)
         {
+           
+            RotateTheCar();
+            TurnTheCar();
             
 
-            if ((transform.rotation.eulerAngles.y < rotationClamp) || (transform.rotation.eulerAngles.y > (360f - rotationClamp)))
-            {
-                transform.Rotate(0f, 0f, 0.1f * (turnSide * rotationSpeed));
-            }
+        }
 
-            if ((transform.rotation.eulerAngles.x < rotationClamp) || (transform.rotation.eulerAngles.x > (360f - rotationClamp)))
+    }
+
+        public void GetBackOnTrack()
+        {
+            if (turnSide == 0)
             {
-                transform.Rotate(0f, 0.1f * (turnSide * rotationSpeed), 0f);
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime * rotationResetSpeed);
+
+
             }
 
         }
 
-        
-    }
-
-    public void GetBackOnTrack()
+        void RotateTheCar()
     {
-        if(Input.GetAxis("Horizontal") == 0) 
+        Vector3 rotationVector = new Vector3();
+
+        if ((transform.rotation.eulerAngles.y < rotationClamp) || (transform.rotation.eulerAngles.y > (360f - rotationClamp)))
         {
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation,Time.deltaTime * rotationResetSpeed);
-            
-
+            rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
         }
 
+        if ((transform.rotation.eulerAngles.x < rotationClamp) || (transform.rotation.eulerAngles.x > (360f - rotationClamp)))
+        {
+            rotationVector += new Vector3(0f, turnSide * rotationSpeed, 0f);
+        }
+
+
+        transform.eulerAngles = rotationVector;
     }
+
+    void TurnTheCar()
+    {
+        rb.AddRelativeForce(turnSpeed * -turnSide, 0f, 0f);
+    }
+    
 }

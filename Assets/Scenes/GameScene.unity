@@ -1440,8 +1440,8 @@ GameObject:
   - component: {fileID: 4445976035160073976}
   - component: {fileID: 331568775520902833}
   - component: {fileID: 4445976035160073979}
-  - component: {fileID: 4445976035160073977}
   - component: {fileID: 4445976035160073978}
+  - component: {fileID: 4445976035160073980}
   m_Layer: 0
   m_Name: PlayerCar
   m_TagString: Untagged
@@ -1539,20 +1539,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3372480995524260882}
   m_Mesh: {fileID: -6412804222152392545, guid: df961afdd00dfdc498f7e904d4da0271, type: 3}
---- !u!114 &4445976035160073977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3372480995524260882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3423db8c9738ac4f9498acbba3a141b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnCenter: {fileID: 0}
-  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &4445976035160073978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelarationRate: 0.1
   baseAcceleration: 2
-  maximumSpeed: 30
+  maximumSpeed: 15
 --- !u!54 &4445976035160073979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1582,8 +1568,21 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 16
   m_CollisionDetection: 0
+--- !u!114 &4445976035160073980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372480995524260882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3423db8c9738ac4f9498acbba3a141b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5148817237314720799
 GameObject:
   m_ObjectHideFlags: 0

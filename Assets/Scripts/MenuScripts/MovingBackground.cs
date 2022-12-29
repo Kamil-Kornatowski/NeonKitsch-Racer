@@ -5,13 +5,8 @@ using UnityEngine;
 public class MovingBackground : MonoBehaviour
 {
     Vector3 moveVector = new Vector3(0, 0, 0.5f);
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
+   // Moving track backwards in FixedUpdate to ensure even movement
     void FixedUpdate()
     {
 

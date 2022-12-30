@@ -13,6 +13,8 @@ public class Acceleration : MonoBehaviour
     [SerializeField]
     int maximumSpeed = 30;
 
+    int speed = 10;
+
     public int MaximumSpeed
     {
         get { return maximumSpeed; }
@@ -34,13 +36,18 @@ public class Acceleration : MonoBehaviour
         //KeepStraightPath();
         MoveForward();
         Accelerate();
-        
+        if(transform.position.y < 0.5)
+        {
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        }
         
     }
 
 
     public void MoveForward()
     {
+        //transform.Translate((-transform.forward + rb.velocity) * Time.deltaTime);
+
         rb.AddRelativeForce(-transform.forward);
     }
 
@@ -48,7 +55,7 @@ public class Acceleration : MonoBehaviour
     {
         if (rb.velocity.z > MaximumSpeed)
         {
-            rb.velocity += gameObject.transform.forward * (baseAcceleration + accelarationRate);
+            rb.velocity += transform.forward * (baseAcceleration + accelarationRate);
             accelarationRate += 0.1f;
         }
 
@@ -61,7 +68,7 @@ public class Acceleration : MonoBehaviour
     public void KeepStraightPath()
     {
         if (Input.GetAxis("Horizontal") == 0)
-            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+            rb.velocity = new Vector3(0f, 0f, rb.velocity.z);
         {
 
         }

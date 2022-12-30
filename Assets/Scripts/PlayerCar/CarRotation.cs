@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class Turn : MonoBehaviour
+public class CarRotation : MonoBehaviour
 {
     public Quaternion originalRotation;
     float rotationSpeed = 20.0f;
     float rotationResetSpeed = 20.0f;
-    float rotationClamp = 30.0f;
+    float rotationClamp = 10.0f;
     
 
     float turnSide;
@@ -24,6 +24,8 @@ public class Turn : MonoBehaviour
     void Update()
     {
         turnSide = Input.GetAxis("Horizontal");
+        originalRotation.y = transform.rotation.y;
+        originalRotation.w = transform.rotation.w;
     }
 
 
@@ -32,20 +34,16 @@ public class Turn : MonoBehaviour
         if (turnSide != 0)
         {
 
-            TurnTheCar();
-            //RotateTheCar();
+        
+            RotateTheCar();
+              
             
             
             
 
         }
-
-    }
-      private void LateUpdate()
-    {
-       
-
         GetBackOnTrack();
+
     }
 
         public void GetBackOnTrack()
@@ -53,10 +51,12 @@ public class Turn : MonoBehaviour
             if (turnSide == 0)
             {
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime * rotationResetSpeed);
+                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime);
 
 
             }
+
+            
 
         }
 
@@ -69,23 +69,10 @@ public class Turn : MonoBehaviour
             rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
         }
 
-        if ((transform.rotation.eulerAngles.y < rotationClamp) || (transform.rotation.eulerAngles.y> (360f - rotationClamp)))
-        {
-            rotationVector += new Vector3(0f, turnSide * rotationSpeed, 0f);
-            
-        }
+    
 
-
-        transform.eulerAngles = rotationVector;
+        transform.eulerAngles += rotationVector;
     }
 
-    void TurnTheCar()
-    {
-
-        gameObject.transform.eulerAngles = new Vector3(0f, turnSide, 0f);
-        //transform.RotateAround(transform.position, transform.up, turnSide);
-
-        //transform.rotation = Quaternion.Euler(0f, turnSide, 0f);
-    }
     
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Acceleration : MonoBehaviour
@@ -11,21 +9,15 @@ public class Acceleration : MonoBehaviour
     [SerializeField]
     float baseAcceleration = 2f;
     [SerializeField]
-    float maximumSpeed = 300;
+    float maximumSpeed = 1000;
 
-    public float speed = 150;
-
-
-
-
-    public Vector3 currentForward;
+    public float speed = 100;
 
 
     // Start is called before the first frame update
     void Start()
     {
- 
-        
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -34,9 +26,12 @@ public class Acceleration : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //KeepStraightPath();
+        //Applying basic movement to the car
         MoveForward();
+        //Applying acceleration if needed
         Accelerate();
+
+        //In progress code - ensuring that car won't be derailed by microchanges in velocity.y, need better solution!
         if(transform.position.y < 0.5)
         {
             transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
@@ -51,6 +46,7 @@ public class Acceleration : MonoBehaviour
     {
 
         
+        //Transform.forward is negative because of pivot of the model
             rb.velocity = -transform.forward * speed * Time.deltaTime;
         
       
@@ -61,18 +57,11 @@ public class Acceleration : MonoBehaviour
         if (speed < maximumSpeed)
         {
             speed += baseAcceleration + accelarationRate;
-            //accelarationRate += 0.1f;
+            
         }
 
      
     }
-    public void KeepStraightPath()
-    {
-        if (Input.GetAxis("Horizontal") == 0)
-            rb.velocity = new Vector3(0f, 0f, rb.velocity.z);
-        {
-
-        }
-    }
+ 
 }
 

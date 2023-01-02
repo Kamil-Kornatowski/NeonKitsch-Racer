@@ -5,10 +5,7 @@ public class CarRotation : MonoBehaviour
 {
     public Quaternion originalRotation;
     float rotationSpeed = 50.0f;
-
     float rotationClamp = 10.0f;
-    
-
     float turnSide;
 
     Rigidbody rb;
@@ -33,44 +30,39 @@ public class CarRotation : MonoBehaviour
     {
         if (turnSide != 0)
         {
-
-        
-            RotateTheCar();
-              
-            
-            
-            
-
+            RotateTheCar();     
         }
-        GetBackOnTrack();
+        else
+        {
+            ResetRotation();
+        }
+        
 
     }
 
-        public void GetBackOnTrack()
-        {
-            if (turnSide == 0)
-            {
+    public void ResetRotation()
+    {
+       
+        transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime);
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime);
-
-
-            }
-
-            
-
-        }
+    }
 
     void RotateTheCar()
     {
+
+        //Function contains commented alternative way of applying rotation to the model, using smoother methods, but for now it has unsatisfactory results
+
         Vector3 rotationVector = new Vector3();
+        //Quaternion rotationQuaternion = new Quaternion();
 
         if ((transform.rotation.eulerAngles.z < rotationClamp) || (transform.rotation.eulerAngles.z > (360f - rotationClamp)))
         {
             rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
+            //rotationQuaternion = new Quaternion(0f, 0f, turnSide * rotationSpeed, 0f);
+
         }
 
-    
-
+        //transform.rotation = Quaternion.Slerp(transform.rotation, rotationQuaternion, Time.deltaTime);
         transform.eulerAngles += rotationVector;
     }
 

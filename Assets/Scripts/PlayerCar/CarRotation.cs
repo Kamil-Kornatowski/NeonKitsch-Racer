@@ -4,8 +4,8 @@ using UnityEngine.PlayerLoop;
 public class CarRotation : MonoBehaviour
 {
     public Quaternion originalRotation;
-    float rotationSpeed = 20.0f;
-    float rotationResetSpeed = 20.0f;
+    float rotationSpeed = 50.0f;
+
     float rotationClamp = 10.0f;
     
 

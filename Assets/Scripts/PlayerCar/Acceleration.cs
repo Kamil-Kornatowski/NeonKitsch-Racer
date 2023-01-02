@@ -7,28 +7,29 @@ public class Acceleration : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField]
-    float accelarationRate = 0.1f;
+    float accelarationRate = 1f;
     [SerializeField]
     float baseAcceleration = 2f;
     [SerializeField]
-    int maximumSpeed = 30;
+    float maximumSpeed = 300;
 
-    int speed = 10;
+    public float speed = 150;
 
-    public int MaximumSpeed
-    {
-        get { return maximumSpeed; }
-        set { maximumSpeed = value;}
-    }
-   
+
+
+
+    public Vector3 currentForward;
 
 
     // Start is called before the first frame update
     void Start()
     {
+ 
         
         rb = GetComponent<Rigidbody>();
     }
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -40,30 +41,30 @@ public class Acceleration : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
         }
+
+        
         
     }
 
 
     public void MoveForward()
     {
-        //transform.Translate((-transform.forward + rb.velocity) * Time.deltaTime);
 
-        rb.AddRelativeForce(-transform.forward);
+        
+            rb.velocity = -transform.forward * speed * Time.deltaTime;
+        
+      
     }
 
     public void Accelerate()
     {
-        if (rb.velocity.z > MaximumSpeed)
+        if (speed < maximumSpeed)
         {
-            rb.velocity += transform.forward * (baseAcceleration + accelarationRate);
-            accelarationRate += 0.1f;
+            speed += baseAcceleration + accelarationRate;
+            //accelarationRate += 0.1f;
         }
 
-        else
-        {
-            accelarationRate = 0f;
-            rb.velocity = new Vector3(rb.velocity.x, 0, -MaximumSpeed);
-        }
+     
     }
     public void KeepStraightPath()
     {

@@ -17,6 +17,8 @@ public class StartGame : MonoBehaviour
 
 
         buttonStart.clicked += () => StartGameButton();
+        buttonSettings.clicked += () => SettingsGameButton();
+        buttonExit.clicked += () => ExitGameButton();
     }
 
     public void StartGameButton()
@@ -27,10 +29,20 @@ public class StartGame : MonoBehaviour
     public void SettingsGameButton()
     {
        //Settings menu enable
+       /* T0D0:
+        Player should be able to change:
+       - resolution
+       - audio volume ( master, effects, music )
+        
+        */
+
     } 
     public void ExitGameButton()
     {
-       Application.Quit();
+       //Exit for build
+        Application.Quit();
+       //Exit for debugging
+        UnityEditor.EditorApplication.isPlaying= false;
         
     }
 

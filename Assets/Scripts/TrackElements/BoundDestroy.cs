@@ -8,7 +8,7 @@ public class BoundDestroy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        //SceneManager.LoadScene("GameScene");
-        Debug.Log("BAND HIT");
+        SceneManager.LoadScene("GameScene");
+        //Debug.Log("BAND HIT");
     }
 }

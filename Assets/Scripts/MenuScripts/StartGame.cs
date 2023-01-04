@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class StartGame : MonoBehaviour
 {
     VisualElement root;
-    Button start;
+   
 
     private void Start()
     {
@@ -28,6 +28,8 @@ public class StartGame : MonoBehaviour
     } 
     public void SettingsGameButton()
     {
+
+        
        //Settings menu enable
        /* T0D0:
         Player should be able to change:

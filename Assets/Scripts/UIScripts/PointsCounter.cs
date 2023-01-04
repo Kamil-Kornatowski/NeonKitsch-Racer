@@ -27,7 +27,7 @@ public class PointsCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        points.text = playerPoints.ToString();
+        points.text = "Score: " + playerPoints.ToString();
         speed.text = "Speed " + playerAcceleration.speed.ToString();
     
     }

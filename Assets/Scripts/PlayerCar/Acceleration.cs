@@ -8,8 +8,8 @@ public class Acceleration : MonoBehaviour
     float accelarationRate = 1f;
     [SerializeField]
     float baseAcceleration = 2f;
-    [SerializeField]
-    float maximumSpeed = 1000;
+    //T0D0: Try to encapsulate again, usage in BoosSpeed
+    public float maximumSpeed = 1000;
 
     public float speed = 100;
 

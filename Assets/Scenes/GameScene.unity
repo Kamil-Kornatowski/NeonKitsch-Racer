@@ -165,6 +165,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &388171419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5512694256724738348, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+  m_PrefabInstance: {fileID: 5512694257945320567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &388171424
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 6
+  m_Direction: 0
+  m_Center: {x: -6.5, y: 2.5, z: 2.5}
+--- !u!136 &388171425
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 5
+  m_Direction: 1
+  m_Center: {x: 2, y: 2.5, z: -6.17}
+--- !u!136 &388171426
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388171419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 10
+  m_Direction: 2
+  m_Center: {x: 5.57, y: 2.5, z: 0.08}
 --- !u!1 &587916598
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,37 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAcceleration: {fileID: 4445976035160073978}
---- !u!1 &865357126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5512694257259807900, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
-  m_PrefabInstance: {fileID: 5512694257945320567}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &865357130
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865357126}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 16.103437, y: 6.0617824, z: 1.1770142}
-  m_Center: {x: 0, y: 2.8106463, z: 0}
---- !u!114 &865357131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865357126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a111e6186f19234419b1ad1166118786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoostValue: 200
 --- !u!1 &1490269709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,10 +1051,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 179848949, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -279.18
-      objectReference: {fileID: 0}
     - target: {fileID: 5512694258412781408, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
       propertyPath: m_Name
       value: Simple Loop

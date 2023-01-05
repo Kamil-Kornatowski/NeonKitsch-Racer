@@ -58,7 +58,7 @@ public class StartGame : MonoBehaviour
        //Exit for build
         Application.Quit();
        //Exit for debugging
-        UnityEditor.EditorApplication.isPlaying= false;
+        //UnityEditor.EditorApplication.isPlaying= false;
         
     }
 

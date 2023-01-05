@@ -6,37 +6,51 @@ using UnityEngine.UIElements;
 public class StartGame : MonoBehaviour
 {
     VisualElement root;
-   
+    VisualElement main;
+    VisualElement gameSettings;
+    VisualElement MapInfo;
 
     private void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
+
+
+        // Main Menu elements
+        main = root.Q<VisualElement>("Buttons");
         Button buttonStart = root.Q<Button>("Start");
         Button buttonSettings = root.Q<Button>("Settings");
         Button buttonExit = root.Q<Button>("Exit");
 
+        // Game Settings menu elements
+        gameSettings = root.Q<VisualElement>("GameSettings");
+       
+        Button buttonBackFromGameSettings = root.Q<Button>("BackFromGameSettings");
+        Button buttonTimeToRace = root.Q<Button>("TimeToRace");
 
-        buttonStart.clicked += () => StartGameButton();
+
+        buttonStart.clicked += () => StartGameSettingsButton();
         buttonSettings.clicked += () => SettingsGameButton();
         buttonExit.clicked += () => ExitGameButton();
+
+        buttonBackFromGameSettings.clicked += () => BackToMainMenu(gameSettings);
+        buttonTimeToRace.clicked += () => TimeToRace();
+
+
+
+        
     }
 
-    public void StartGameButton()
+    public void StartGameSettingsButton()
     {
-        SceneManager.LoadScene("GameScene");
+
+        ExchangeMenu(main, gameSettings);
+        
         
     } 
     public void SettingsGameButton()
     {
-
-        
-       //Settings menu enable
-       /* T0D0:
-        Player should be able to change:
-       - resolution
-       - audio volume ( master, effects, music )
-        
-        */
+          
+    
 
     } 
     public void ExitGameButton()
@@ -47,6 +61,24 @@ public class StartGame : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying= false;
         
     }
+
+
+    public void BackToMainMenu(VisualElement thisMenu)
+    {
+        ExchangeMenu(thisMenu, main);
+    }
+
+    public void TimeToRace()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void ExchangeMenu(VisualElement oldMenu, VisualElement newMenu)
+    {
+        oldMenu.visible = false;
+        newMenu.visible = true;
+    }
+
 
 
 }

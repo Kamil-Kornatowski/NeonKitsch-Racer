@@ -8,7 +8,7 @@ public class StartGame : MonoBehaviour
     VisualElement root;
     VisualElement main;
     VisualElement gameSettings;
-    VisualElement MapInfo;
+    
 
     private void Start()
     {

@@ -1,0 +1,37 @@
+.kitsch_button {
+    width: 20%;
+    height: 20%;
+    -unity-font: url('project://database/Assets/UI/Fonts/vipnagorgialla%20bd%20it.otf?fileID=12800000&guid=a561e26a22ba55f4aaba3d06ac969cd4&type=3#vipnagorgialla bd it');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/vipnagorgialla%20bd%20it%20SDF.asset?fileID=11400000&guid=9a43373c89f778e429f2c3dc01f514e1&type=2#vipnagorgialla bd it SDF');
+    font-size: 25px;
+    -unity-text-outline-color: rgba(171, 33, 167, 255);
+    -unity-text-outline-width: 3px;
+    text-shadow: 1px 1px 3px rgba(32, 255, 89, 255);
+    color: rgb(139, 243, 154);
+    background-color: rgba(123, 125, 123, 255);
+    letter-spacing: 10px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+}
+
+.kitsch_button_fin {
+    -unity-text-outline-width: 1px;
+    text-shadow: 2px 2px 1px rgba(255, 0, 201, 255);
+    background-color: rgba(131, 200, 131, 255);
+    color: rgba(255, 255, 255, 255);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 1px;
+    padding-bottom: 3px;
+    width: 20%;
+    height: 25%;
+    font-size: 36px;
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/vipnagorgialla%20bd%20it%20SDF.asset?fileID=11400000&guid=9a43373c89f778e429f2c3dc01f514e1&type=2#vipnagorgialla bd it SDF');
+    -unity-text-align: middle-center;
+    letter-spacing: 5px;
+    word-spacing: 0;
+}

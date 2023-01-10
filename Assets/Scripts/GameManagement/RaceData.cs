@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RaceData : MonoBehaviour
 {
+    public static bool raceStarted = false;
     public Acceleration player;
 
     public int playerSpeed = 0;
@@ -22,6 +23,7 @@ public class RaceData : MonoBehaviour
 
     int framesCounter = 0;
 
+  
 
     private void Update()
     {

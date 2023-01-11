@@ -15,6 +15,7 @@ public class PauseGame : MonoBehaviour
     Button exit;
 
     Button restartGame;
+    Label score;
 
     VisualElement pauseMenu;
     VisualElement gameOverMenu;
@@ -37,13 +38,15 @@ public class PauseGame : MonoBehaviour
 
         restartGame = root.Q<Button>("Button_Restart");
 
+        score = root.Q<Label>("Label_FinalScore");
+
         resume.clicked += () => ResumeTheGame();
         //settings.clicked+= () => ResumeTheGame();
         backToTrackSelection.clicked += () => BackToTheTrackSelection();
         exit.clicked += () => ExitTheGame();
 
         restartGame.clicked += () => RestartGame();
-
+        
 
     }
 
@@ -79,6 +82,7 @@ public class PauseGame : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0.0f;
+        score.text = "Score: " + RaceData.playerScore.ToString();
         gameOverMenu.visible = true;
         isPaused = true;
     }

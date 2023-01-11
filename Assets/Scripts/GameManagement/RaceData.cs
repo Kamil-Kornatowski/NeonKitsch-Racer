@@ -15,7 +15,7 @@ public class RaceData : MonoBehaviour
     public int PlayerSpeed { get;}
 
     
-    public int playerScore = 0;
+    public static int playerScore = 0;
 
     public int PlayerScore { get;}
 

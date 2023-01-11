@@ -21,6 +21,7 @@ public class Counters : MonoBehaviour
         points = root.Q<Label>("Score");
         speed = root.Q<Label>("Speed");
         countDown = root.Q<Label>("CountDown");
+     
 
         //variables ensuring proper game restart
         //T0D0: Reorganization of the variables and dependencies to make it more efficent and logical
@@ -42,7 +43,7 @@ public class Counters : MonoBehaviour
 
         if (RaceData.raceStarted == true)
         {
-            points.text = "Score " + raceData.playerScore.ToString();
+            points.text = "Score " + RaceData.playerScore.ToString();
             speed.text = "Speed " + raceData.playerSpeed.ToString();
         }
     }

@@ -13,7 +13,11 @@ public class PauseGame : MonoBehaviour
     Button settings;
     Button backToTrackSelection;
     Button exit;
+
+    Button restartGame;
+
     VisualElement pauseMenu;
+    VisualElement gameOverMenu;
 
 
     public bool isPaused = false;
@@ -21,18 +25,25 @@ public class PauseGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         pauseMenu = root.Q<VisualElement>("PauseMenu");
+        gameOverMenu = root.Q<VisualElement>("GameOverMenu");
 
         resume = root.Q<Button>("Button_Resume");
         settings = root.Q<Button>("Button_Settings");
         backToTrackSelection = root.Q<Button>("Button_BackToTrackSelection");
         exit = root.Q<Button>("Button_Exit");
 
+        restartGame = root.Q<Button>("Button_Restart");
+
         resume.clicked += () => ResumeTheGame();
         //settings.clicked+= () => ResumeTheGame();
         backToTrackSelection.clicked += () => BackToTheTrackSelection();
         exit.clicked += () => ExitTheGame();
+
+        restartGame.clicked += () => RestartGame();
+
 
     }
 
@@ -46,6 +57,11 @@ public class PauseGame : MonoBehaviour
             PauseTheGame();
         }
 
+        if (RaceData.gameOver)
+        {
+            GameOver();
+        }
+
        
 
     }
@@ -53,19 +69,34 @@ public class PauseGame : MonoBehaviour
     public void PauseTheGame()
     {
         //RaceData.raceStarted = false;
+        
         Time.timeScale= 0.0f;
         pauseMenu.visible = true;
         isPaused = true;
 
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0.0f;
+        gameOverMenu.visible = true;
+        isPaused = true;
+    }
+
     public void ResumeTheGame()
     {
-        //RaceData.raceStarted = true;
+        
+        
         Time.timeScale= 1.0f;
         pauseMenu.visible = false;
         isPaused = false;
     
+    }
+
+    public void RestartGame()
+    {
+        
+        SceneManager.LoadScene("GameScene");
     }
 
     public void BackToTheTrackSelection() 

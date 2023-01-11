@@ -3,12 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class StartGame : MonoBehaviour
+public class MainMenuScript : MonoBehaviour
 {
     VisualElement root;
     VisualElement main;
     VisualElement gameSettings;
-    
+    VisualElement credits;
 
     private void Start()
     {
@@ -18,7 +18,8 @@ public class StartGame : MonoBehaviour
         // Main Menu elements
         main = root.Q<VisualElement>("Buttons");
         Button buttonStart = root.Q<Button>("Start");
-        Button buttonSettings = root.Q<Button>("Settings");
+        //Button buttonSettings = root.Q<Button>("Settings");
+        Button buttonCredits = root.Q<Button>("buttonCredits");
         Button buttonExit = root.Q<Button>("Exit");
 
         // Game Settings menu elements
@@ -27,32 +28,23 @@ public class StartGame : MonoBehaviour
         Button buttonBackFromGameSettings = root.Q<Button>("BackFromGameSettings");
         Button buttonTimeToRace = root.Q<Button>("TimeToRace");
 
+        credits = root.Q<VisualElement>("Credits");
+        Button buttonBackFromCredits = root.Q<Button>("BackFromCredits");
 
-        buttonStart.clicked += () => StartGameSettingsButton();
-        buttonSettings.clicked += () => SettingsGameButton();
+        buttonStart.clicked += () => ExchangeMenu(main, gameSettings);
+        // buttonSettings.clicked += () => SettingsGameButton();
+        buttonCredits.clicked += () => ExchangeMenu(main, credits);
+        buttonBackFromCredits.clicked += () => BackToMainMenu(credits);
         buttonExit.clicked += () => ExitGameButton();
 
         buttonBackFromGameSettings.clicked += () => BackToMainMenu(gameSettings);
         buttonTimeToRace.clicked += () => TimeToRace();
 
-
-
         
     }
 
-    public void StartGameSettingsButton()
-    {
 
-        ExchangeMenu(main, gameSettings);
-        
-        
-    } 
-    public void SettingsGameButton()
-    {
-          
-    
-
-    } 
+ 
     public void ExitGameButton()
     {
        //Exit for build
@@ -62,10 +54,10 @@ public class StartGame : MonoBehaviour
         
     }
 
-
     public void BackToMainMenu(VisualElement thisMenu)
     {
-        ExchangeMenu(thisMenu, main);
+        thisMenu.visible= false;
+        main.visible= true;
     }
 
     public void TimeToRace()

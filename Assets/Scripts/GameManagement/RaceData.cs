@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaceData : MonoBehaviour
 {
     public static bool raceStarted = false;
+    public static bool gameOver = false;
     public Acceleration player;
 
     public int playerSpeed = 0;
@@ -23,7 +24,13 @@ public class RaceData : MonoBehaviour
 
     int framesCounter = 0;
 
-  
+    private void Start()
+    {
+        //setting values for restarted race
+        //raceStarted= false;
+        //gameOver= false;
+        //Time.timeScale = 1.0f;
+    }
 
     private void Update()
     {

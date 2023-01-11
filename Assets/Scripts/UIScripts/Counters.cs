@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class Counters : MonoBehaviour
 {
-   static int countDownValue = 3;
+    static int countDownValue = 3;
     int countTimer = 0;
     public RaceData raceData;
     public PlayerManager playerManager;
@@ -11,7 +11,7 @@ public class Counters : MonoBehaviour
     Label speed;
     Label countDown;
 
-    bool needCountDown = true;
+    static bool needCountDown = true;
 
     private void Start()
     {
@@ -22,7 +22,13 @@ public class Counters : MonoBehaviour
         speed = root.Q<Label>("Speed");
         countDown = root.Q<Label>("CountDown");
 
+        //variables ensuring proper game restart
+        //T0D0: Reorganization of the variables and dependencies to make it more efficent and logical
 
+        RaceData.raceStarted = false;
+        RaceData.gameOver = false;
+        Time.timeScale = 1.0f;
+        needCountDown = true;
         countDownValue = 3;
 
 
@@ -43,6 +49,8 @@ public class Counters : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+       
         
         if(needCountDown && countTimer >= 50)
         {

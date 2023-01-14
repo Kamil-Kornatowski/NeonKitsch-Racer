@@ -43,7 +43,7 @@ public class CarRotation : MonoBehaviour
     public void ResetRotation()
     {
        
-        transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, originalRotation, Time.deltaTime * rotationSpeed);
 
     }
 

@@ -7,13 +7,14 @@ public class CarRotation : MonoBehaviour
     float rotationSpeed = 30.0f;
     float rotationClamp = 10.0f;
     float turnSide;
+    float turnSideChange;
 
     Rigidbody rb;
 
     void Start()
     {
 
-        rb = GetComponent<Rigidbody>();   
+        rb = GetComponent<Rigidbody>();
         originalRotation = transform.rotation;
     }
 
@@ -23,20 +24,20 @@ public class CarRotation : MonoBehaviour
         turnSide = Input.GetAxis("Horizontal");
         originalRotation.y = transform.rotation.y;
         originalRotation.w = transform.rotation.w;
+
+       
     }
 
 
     void FixedUpdate()
     {
-        if (turnSide != 0)
-        {
-            RotateTheCar();     
-        }
-        else
+        RotateTheCar();
+
+        if (turnSide == 0)
         {
             ResetRotation();
         }
-        
+
 
     }
 

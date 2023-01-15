@@ -26,11 +26,10 @@ public class RaceData : MonoBehaviour
 
     private void Start()
     {
-        //setting values for restarted race
-        //raceStarted= false;
-        //gameOver= false;
-        //Time.timeScale = 1.0f;
+        //ensuring correct value of the score
+        playerScore = 0;
     }
+
 
     private void Update()
     {

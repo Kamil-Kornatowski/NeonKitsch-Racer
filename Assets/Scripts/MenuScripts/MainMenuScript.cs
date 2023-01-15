@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Networking.Types;
 using UnityEngine.UIElements;
 
 
@@ -9,6 +10,10 @@ public class MainMenuScript : MonoBehaviour
     VisualElement main;
     VisualElement gameSettings;
     VisualElement credits;
+
+    //Audio elements of the UI
+    public AudioSource source;
+    public AudioClip soundClick;
 
     private void Start()
     {
@@ -33,21 +38,25 @@ public class MainMenuScript : MonoBehaviour
 
 
         //On click function assignation
-
         //Main Menu buttons functions
         buttonStart.clicked += () => UIToolkitUtilities.ExchangeMenu(main, gameSettings);
         // buttonSettings.clicked += () => SettingsGameButton();
         buttonCredits.clicked += () => UIToolkitUtilities.ExchangeMenu(main, credits);
         buttonExit.clicked += () => UIToolkitUtilities.ExitGame();
 
-
-
         //Sub-menus buttons functions
         buttonBackFromGameSettings.clicked += () => BackToMainMenu(gameSettings);
+        
         buttonTimeToRace.clicked += () => UIToolkitUtilities.PlayTheGame();
-
         buttonBackFromCredits.clicked += () => BackToMainMenu(credits);
-
+       
+        //Button sound function
+        buttonStart.clicked += () => PlaySound(soundClick);
+        buttonCredits.clicked += () => PlaySound(soundClick);
+        buttonExit.clicked += () => PlaySound(soundClick);
+        buttonBackFromGameSettings.clicked += () => PlaySound(soundClick);
+        buttonTimeToRace.clicked += () => PlaySound(soundClick);
+        buttonBackFromCredits.clicked += () => PlaySound(soundClick);
     }
 
 
@@ -57,9 +66,13 @@ public class MainMenuScript : MonoBehaviour
         main.visible= true;
     }
 
- 
+    public void PlaySound(AudioClip sound)
+    {
+        source.PlayOneShot(sound);
+    }
 
- 
+
+
 
 
 

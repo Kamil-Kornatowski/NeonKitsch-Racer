@@ -13,6 +13,12 @@ public class Counters : MonoBehaviour
 
     static bool needCountDown = true;
 
+
+    //Audio clips
+    public AudioSource source;
+    public AudioClip countdownTick;
+    public AudioClip countdownStart;
+
     private void Start()
     {
         
@@ -68,9 +74,11 @@ public class Counters : MonoBehaviour
         
         countDown.text = countDownValue.ToString();
         
+        
         if(countDownValue == 0 )
         {
             countDown.text = "START!";
+            source.PlayOneShot(countdownStart);
             RaceData.raceStarted = true;
             playerManager.EnableScripts();
         }
@@ -83,7 +91,12 @@ public class Counters : MonoBehaviour
            
         }
 
-        countDownValue--;
+
+        if (countDownValue > 0)
+        {
+            source.PlayOneShot(countdownTick);
+        }
+        countDownValue--; 
         
     }
 

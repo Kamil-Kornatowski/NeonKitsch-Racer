@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 public static class UIToolkitUtilities
 {
 
-
     public static void PlayTheGame()
     {
         SceneManager.LoadScene("GameScene");

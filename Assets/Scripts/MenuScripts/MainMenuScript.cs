@@ -1,7 +1,7 @@
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+
+
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -24,35 +24,32 @@ public class MainMenuScript : MonoBehaviour
 
         // Game Settings menu elements
         gameSettings = root.Q<VisualElement>("GameSettings");
-       
         Button buttonBackFromGameSettings = root.Q<Button>("BackFromGameSettings");
         Button buttonTimeToRace = root.Q<Button>("TimeToRace");
 
+        //Credits menu elements
         credits = root.Q<VisualElement>("Credits");
         Button buttonBackFromCredits = root.Q<Button>("BackFromCredits");
 
-        buttonStart.clicked += () => ExchangeMenu(main, gameSettings);
+
+        //On click function assignation
+
+        //Main Menu buttons functions
+        buttonStart.clicked += () => UIToolkitUtilities.ExchangeMenu(main, gameSettings);
         // buttonSettings.clicked += () => SettingsGameButton();
-        buttonCredits.clicked += () => ExchangeMenu(main, credits);
-        buttonBackFromCredits.clicked += () => BackToMainMenu(credits);
-        buttonExit.clicked += () => ExitGameButton();
+        buttonCredits.clicked += () => UIToolkitUtilities.ExchangeMenu(main, credits);
+        buttonExit.clicked += () => UIToolkitUtilities.ExitGame();
 
+
+
+        //Sub-menus buttons functions
         buttonBackFromGameSettings.clicked += () => BackToMainMenu(gameSettings);
-        buttonTimeToRace.clicked += () => TimeToRace();
+        buttonTimeToRace.clicked += () => UIToolkitUtilities.PlayTheGame();
 
-        
+        buttonBackFromCredits.clicked += () => BackToMainMenu(credits);
+
     }
 
-
- 
-    public void ExitGameButton()
-    {
-       //Exit for build
-        Application.Quit();
-       //Exit for debugging
-        //UnityEditor.EditorApplication.isPlaying= false;
-        
-    }
 
     public void BackToMainMenu(VisualElement thisMenu)
     {
@@ -60,16 +57,9 @@ public class MainMenuScript : MonoBehaviour
         main.visible= true;
     }
 
-    public void TimeToRace()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
+ 
 
-    public void ExchangeMenu(VisualElement oldMenu, VisualElement newMenu)
-    {
-        oldMenu.visible = false;
-        newMenu.visible = true;
-    }
+ 
 
 
 

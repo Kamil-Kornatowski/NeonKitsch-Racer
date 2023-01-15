@@ -602,6 +602,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2050744167428063567}
+--- !u!1 &1642712836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5512694256527599349, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+  m_PrefabInstance: {fileID: 5512694257945320567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1642712842
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642712836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.5, z: 10}
+  m_Center: {x: -5.1, y: 2, z: 0}
+--- !u!65 &1642712843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642712836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.5, z: 10}
+  m_Center: {x: 5.2, y: 2, z: 0}
 --- !u!1 &1892425761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,9 +1385,41 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 466650833, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 466650833, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 885235367, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Height
+      value: 6.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 885235367, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Radius
+      value: 3.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 885235367, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.x
+      value: -7.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 885235367, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.z
+      value: 2.45
+      objectReference: {fileID: 0}
     - target: {fileID: 1140195971, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140195973, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140195973, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
+      propertyPath: m_Center.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1354992017, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
       propertyPath: m_IsTrigger

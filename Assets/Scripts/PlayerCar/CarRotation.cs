@@ -4,10 +4,10 @@ using UnityEngine.PlayerLoop;
 public class CarRotation : MonoBehaviour
 {
     public Quaternion originalRotation;
-    float rotationSpeed = 30.0f;
+    float rotationSpeed = 15.0f;
     float rotationClamp = 10.0f;
     float turnSide;
-    float turnSideChange;
+    
 
     Rigidbody rb;
 
@@ -22,6 +22,9 @@ public class CarRotation : MonoBehaviour
     void Update()
     {
         turnSide = Input.GetAxis("Horizontal");
+        
+        
+        // Reassigning original rotation to allow effective turning 
         originalRotation.y = transform.rotation.y;
         originalRotation.w = transform.rotation.w;
 
@@ -33,11 +36,10 @@ public class CarRotation : MonoBehaviour
     {
         RotateTheCar();
 
-        if (turnSide == 0)
-        {
-            ResetRotation();
-        }
-
+      if (turnSide == 0)
+      {
+          ResetRotation();
+      }
 
     }
 
@@ -50,20 +52,20 @@ public class CarRotation : MonoBehaviour
 
     void RotateTheCar()
     {
-
-        //Function contains commented alternative way of applying rotation to the model, using smoother methods, but for now it has unsatisfactory results
-
         Vector3 rotationVector = new Vector3();
-        //Quaternion rotationQuaternion = new Quaternion();
+       
 
         if ((transform.rotation.eulerAngles.z < rotationClamp) || (transform.rotation.eulerAngles.z > (360f - rotationClamp)))
         {
-            rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
-            //rotationQuaternion = new Quaternion(0f, 0f, turnSide * rotationSpeed, 0f);
 
+            
+            rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
+
+
+            //Debug
+            Debug.Log(rotationVector);
         }
 
-        //transform.rotation = Quaternion.Slerp(transform.rotation, rotationQuaternion, Time.deltaTime);
         transform.eulerAngles += rotationVector;
     }
 

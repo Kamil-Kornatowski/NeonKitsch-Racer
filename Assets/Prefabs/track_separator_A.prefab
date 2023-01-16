@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2911995751168565767}
   - component: {fileID: 3929651934367932527}
   m_Layer: 0
-  m_Name: track_separator_A (15)
+  m_Name: track_separator_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

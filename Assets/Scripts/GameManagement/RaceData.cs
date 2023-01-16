@@ -12,12 +12,14 @@ public class RaceData : MonoBehaviour
 
 
     //T0D0: Encapsulation keep failing, giving value of 0 despite raceData gathering proper values
-    public int PlayerSpeed { get;}
+    //public int PlayerSpeed { get;}
+    //public int PlayerScore { get;}
 
-    
+
+
     public static int playerScore = 0;
 
-    public int PlayerScore { get;}
+ 
 
     int raceTime;
     int playerFullLaps;

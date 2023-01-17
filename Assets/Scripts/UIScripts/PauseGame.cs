@@ -12,6 +12,7 @@ public class PauseGame : MonoBehaviour
     Button resume;
     Button settings;
     Button backToTrackSelection;
+    Button backToTrackSelection2;
     Button exit;
 
     Button restartGame;
@@ -37,6 +38,7 @@ public class PauseGame : MonoBehaviour
         resume = root.Q<Button>("Button_Resume");
         settings = root.Q<Button>("Button_Settings");
         backToTrackSelection = root.Q<Button>("Button_BackToTrackSelection");
+        backToTrackSelection2 = root.Q<Button>("Button_BackToTrackSelection2");
         exit = root.Q<Button>("Button_Exit");
 
         restartGame = root.Q<Button>("Button_Restart");
@@ -46,6 +48,7 @@ public class PauseGame : MonoBehaviour
         resume.clicked += () => ResumeTheGame();
         //settings.clicked+= () => ResumeTheGame();
         backToTrackSelection.clicked += () => BackToTheTrackSelection();
+        backToTrackSelection2.clicked += () => BackToTheTrackSelection();
         exit.clicked += () => ExitTheGame();
 
         restartGame.clicked += () => RestartGame();
@@ -74,7 +77,7 @@ public class PauseGame : MonoBehaviour
 
     public void PauseTheGame()
     {
-        //RaceData.raceStarted = false;
+        
         
         Time.timeScale= 0.0f;
         pauseMenu.visible = true;

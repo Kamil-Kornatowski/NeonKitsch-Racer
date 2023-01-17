@@ -1,0 +1,8 @@
+.less_kitsch_button {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/VCR_OSD_MONO_1.001%20SDF.asset?fileID=11400000&guid=68964f1efee58274e87d267a9348e64b&type=2#VCR_OSD_MONO_1.001 SDF');
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 255);
+    width: 30%;
+    height: 10%;
+    color: rgba(0, 0, 0, 255);
+}

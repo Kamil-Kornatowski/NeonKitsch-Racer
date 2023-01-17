@@ -10,19 +10,7 @@ public class RaceData : MonoBehaviour
 
     public int playerSpeed = 0;
 
-
-    //T0D0: Encapsulation keep failing, giving value of 0 despite raceData gathering proper values
-    //public int PlayerSpeed { get;}
-    //public int PlayerScore { get;}
-
-
-
     public static int playerScore = 0;
-
- 
-
-    int raceTime;
-    int playerFullLaps;
 
     int framesCounter = 0;
 
@@ -36,6 +24,7 @@ public class RaceData : MonoBehaviour
     private void Update()
     {
         GatherData();
+        
     }
 
 
@@ -57,9 +46,9 @@ public class RaceData : MonoBehaviour
     public void GatherData()
     {
         playerSpeed = (int)player.GetComponent<Acceleration>().speed;
-        
 
-        
+        //Dividing data to be more informative to player
+        playerSpeed /= 10;
     }
 
     public void AddPoints()

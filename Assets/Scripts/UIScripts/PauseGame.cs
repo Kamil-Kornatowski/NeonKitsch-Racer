@@ -8,9 +8,7 @@ using UnityEngine.UIElements;
 public class PauseGame : MonoBehaviour
 {
     
-    
     Button resume;
-    Button settings;
     Button backToTrackSelection;
     Button backToTrackSelection2;
     Button exit;
@@ -20,33 +18,31 @@ public class PauseGame : MonoBehaviour
 
     VisualElement pauseMenu;
     VisualElement gameOverMenu;
-
-
-  
-
-
     public bool isPaused = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-       
+       //Declaration and initialization of bigger containers
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         pauseMenu = root.Q<VisualElement>("PauseMenu");
         gameOverMenu = root.Q<VisualElement>("GameOverMenu");
 
+        //Buttons of PauseMenu
         resume = root.Q<Button>("Button_Resume");
-        settings = root.Q<Button>("Button_Settings");
+        //settings = root.Q<Button>("Button_Settings");
         backToTrackSelection = root.Q<Button>("Button_BackToTrackSelection");
         backToTrackSelection2 = root.Q<Button>("Button_BackToTrackSelection2");
         exit = root.Q<Button>("Button_Exit");
 
+        //Buttons of GameOverMenu
         restartGame = root.Q<Button>("Button_Restart");
 
         score = root.Q<Label>("Label_FinalScore");
 
+
+        //Method subscription
         resume.clicked += () => ResumeTheGame();
-        //settings.clicked+= () => ResumeTheGame();
+        //T0D0: settings
         backToTrackSelection.clicked += () => BackToTheTrackSelection();
         backToTrackSelection2.clicked += () => BackToTheTrackSelection();
         exit.clicked += () => ExitTheGame();
@@ -56,7 +52,6 @@ public class PauseGame : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
@@ -70,11 +65,9 @@ public class PauseGame : MonoBehaviour
         {
             GameOver();
         }
-
-       
-
     }
 
+    //Definitions of methods used in Pasue and GameOver Menu
     public void PauseTheGame()
     {
         
@@ -106,7 +99,7 @@ public class PauseGame : MonoBehaviour
     public void RestartGame()
     {
         
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     public void BackToTheTrackSelection() 

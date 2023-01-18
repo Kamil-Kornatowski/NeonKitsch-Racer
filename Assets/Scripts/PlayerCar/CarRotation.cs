@@ -15,6 +15,8 @@ public class CarRotation : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody>();
+
+        //variable used in resetting rotation of the car
         originalRotation = transform.rotation;
     }
 
@@ -58,16 +60,10 @@ public class CarRotation : MonoBehaviour
         if ((transform.rotation.eulerAngles.z < rotationClamp) || (transform.rotation.eulerAngles.z > (360f - rotationClamp)))
         {
 
-            
             rotationVector += new Vector3(0f, 0f, turnSide * rotationSpeed);
 
-
-            //Debug
-            Debug.Log(rotationVector);
         }
 
         transform.eulerAngles += rotationVector;
     }
-
-    
 }

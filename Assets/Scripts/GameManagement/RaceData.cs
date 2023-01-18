@@ -8,8 +8,8 @@ public class RaceData : MonoBehaviour
     public static bool gameOver = false;
     public Acceleration player;
 
+    //Player infomation
     public int playerSpeed = 0;
-
     public static int playerScore = 0;
 
     int framesCounter = 0;
@@ -41,13 +41,11 @@ public class RaceData : MonoBehaviour
         }
     }
 
-
-
     public void GatherData()
     {
         playerSpeed = (int)player.GetComponent<Acceleration>().speed;
 
-        //Dividing data to be more informative to player
+        //Dividing data to be more informative to player, affecting both speed information AND score
         playerSpeed /= 10;
     }
 

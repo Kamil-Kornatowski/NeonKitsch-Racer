@@ -8871,10 +8871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8201eeddfcd01ab448c696156ef7e2eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackCollection: {fileID: 4629823467220227630}
   trackName: Simple Loop
   trackDesc: Simple track with little obstacles apart from track walls - thus the
     name. Short and sweet, allows high speeds, so watch out!
+  trackImage: {fileID: 2800000, guid: 79fe36932c7c34543a6a453b3052d295, type: 3}
 --- !u!1 &5512694258462828685
 GameObject:
   m_ObjectHideFlags: 0

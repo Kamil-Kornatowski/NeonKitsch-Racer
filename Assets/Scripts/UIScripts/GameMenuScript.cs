@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Counters : MonoBehaviour
+public class GameMenuScript : MonoBehaviour
 {
     static int countDownValue = 3;
     int countTimer = 0;

@@ -7,7 +7,7 @@ public static class UIToolkitUtilities
 
     public static void PlayTheGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     public static void ExitGame()

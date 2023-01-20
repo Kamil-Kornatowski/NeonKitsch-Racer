@@ -2854,6 +2854,7 @@ GameObject:
   - component: {fileID: 813335957}
   - component: {fileID: 813335959}
   - component: {fileID: 813335960}
+  - component: {fileID: 813335961}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -2924,6 +2925,22 @@ MonoBehaviour:
   - {fileID: 5512694258412781422, guid: ee093dfc2145bbe46b69270372ea9f40, type: 3}
   - {fileID: -7984879924609612474, guid: e03f8eb71fe0a4145ba17ffeb64a4e01, type: 3}
   - {fileID: 4947722002427859994, guid: 53ab3a0d1a64e3f488a67982c7b3a9f2, type: 3}
+--- !u!114 &813335961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813335956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490b8876033604843838f299bcd31bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataInitialization:
+    SimpleLoopScore: 1000
+    StraigthRunScore: 0
+    NeonBetCircuit: 0
 --- !u!1 &821361190
 GameObject:
   m_ObjectHideFlags: 0

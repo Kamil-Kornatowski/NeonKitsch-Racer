@@ -273,7 +273,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 678db6753decd1c44953e414f52ead0c, type: 3}
+      m_Icon: {fileID: 2800000, guid: 1013ba4be4181e7438c7c8920b2c36f0, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -380,7 +380,7 @@ PlayerSettings:
     m_Automatic: 1
   - m_BuildTarget: WebGLSupport
     m_APIs: 0b000000
-    m_Automatic: 1
+    m_Automatic: 0
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 0

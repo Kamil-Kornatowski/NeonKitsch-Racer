@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.Networking.Types;
 using UnityEngine.UIElements;
@@ -15,8 +16,11 @@ public class MainMenuScript : MonoBehaviour
     public AudioSource source;
     public AudioClip soundClick;
 
+    
     private void Start()
     {
+
+   
         root = GetComponent<UIDocument>().rootVisualElement;
 
 
@@ -69,10 +73,5 @@ public class MainMenuScript : MonoBehaviour
     {
         source.PlayOneShot(sound);
     }
-
-
-
-
-
 
 }

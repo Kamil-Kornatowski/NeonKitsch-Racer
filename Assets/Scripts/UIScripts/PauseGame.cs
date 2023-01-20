@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+
 
 public class PauseGame : MonoBehaviour
 {
@@ -19,19 +17,22 @@ public class PauseGame : MonoBehaviour
     VisualElement pauseMenu;
     VisualElement gameOverMenu;
     public bool isPaused = false;
+    DataPersistance.ScoreData bestScores;
 
     void Start()
     {
-       //Declaration and initialization of bigger containers
+        bestScores = DataPersistance.ReadSavedData();
+
+
+        //Declaration and initialization of bigger containers
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         pauseMenu = root.Q<VisualElement>("PauseMenu");
         gameOverMenu = root.Q<VisualElement>("GameOverMenu");
 
         //Buttons of PauseMenu
         resume = root.Q<Button>("Button_Resume");
-        //settings = root.Q<Button>("Button_Settings");
-        backToTrackSelection = root.Q<Button>("Button_BackToTrackSelection");
-        backToTrackSelection2 = root.Q<Button>("Button_BackToTrackSelection2");
+        backToTrackSelection = root.Q<Button>("Button_BackToMenu");
+        backToTrackSelection2 = root.Q<Button>("Button_BackToMenu2");
         exit = root.Q<Button>("Button_Exit");
 
         //Buttons of GameOverMenu
@@ -43,9 +44,9 @@ public class PauseGame : MonoBehaviour
         //Method subscription
         resume.clicked += () => ResumeTheGame();
         //T0D0: settings
-        backToTrackSelection.clicked += () => BackToTheTrackSelection();
-        backToTrackSelection2.clicked += () => BackToTheTrackSelection();
-        exit.clicked += () => ExitTheGame();
+        backToTrackSelection.clicked += () => BackToTheMenu();
+        backToTrackSelection2.clicked += () => BackToTheMenu();
+        exit.clicked += () => UIToolkitUtilities.ExitGame();
 
         restartGame.clicked += () => RestartGame();
         
@@ -64,6 +65,7 @@ public class PauseGame : MonoBehaviour
         if (RaceData.gameOver)
         {
             GameOver();
+            
         }
     }
 
@@ -80,10 +82,19 @@ public class PauseGame : MonoBehaviour
 
     public void GameOver()
     {
+        
         Time.timeScale = 0.0f;
         score.text = "Score: " + RaceData.playerScore.ToString();
+        if(RaceData.playerScore > bestScores.SimpleLoopScore)
+        {
+            bestScores.SimpleLoopScore = RaceData.playerScore;
+            DataPersistance.SaveScores(bestScores);
+        }
+        
         gameOverMenu.visible = true;
         isPaused = true;
+
+       
     }
 
     public void ResumeTheGame()
@@ -102,17 +113,14 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void BackToTheTrackSelection() 
+    public void BackToTheMenu() 
     {
         RaceData.raceStarted = false;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MenuScene");
     }
 
-    public void ExitTheGame() 
-    {
-        Application.Quit();
-    }
+
 
 
 }

@@ -47,4 +47,4 @@ MonoBehaviour:
   trackName: Neon Bet Circuit
   trackDesc: Ready for some fun? Now you can declare how fast you can go! Choose
     starting speed and complete the track... if you'll be able to.
-  trackImage: {fileID: 2800000, guid: ed176d429e1e06447a821509aec32bf1, type: 3}
+  trackImage: {fileID: 2800000, guid: 0106c0458ca9a7f4892bf1edab7e05df, type: 3}

@@ -47,4 +47,4 @@ MonoBehaviour:
   trackName: Straigth Run
   trackDesc: Long track with minor curves but littered with smaller obstacles. Can
     you avoid all of them?
-  trackImage: {fileID: 2800000, guid: ed176d429e1e06447a821509aec32bf1, type: 3}
+  trackImage: {fileID: 2800000, guid: 0106c0458ca9a7f4892bf1edab7e05df, type: 3}

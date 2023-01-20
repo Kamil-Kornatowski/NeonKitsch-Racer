@@ -13,6 +13,7 @@ public class PauseGame : MonoBehaviour
 
     Button restartGame;
     Label score;
+ 
 
     VisualElement pauseMenu;
     VisualElement gameOverMenu;
@@ -39,6 +40,7 @@ public class PauseGame : MonoBehaviour
         restartGame = root.Q<Button>("Button_Restart");
 
         score = root.Q<Label>("Label_FinalScore");
+       
 
 
         //Method subscription
@@ -84,15 +86,30 @@ public class PauseGame : MonoBehaviour
     {
         
         Time.timeScale = 0.0f;
-        score.text = "Score: " + RaceData.playerScore.ToString();
-        if(RaceData.playerScore > bestScores.SimpleLoopScore)
+        
+        if(RaceData.playerScore >= bestScores.SimpleLoopScore)
         {
+            score.text = "High Score: " + RaceData.playerScore.ToString() + " ! " ;
             bestScores.SimpleLoopScore = RaceData.playerScore;
             DataPersistance.SaveScores(bestScores);
+
+            
+            gameOverMenu.visible = true;
+            
+            
+          
+
+            isPaused = true;
+        }
+        else
+        {
+            gameOverMenu.visible = true;
+            score.text = "Score: " + RaceData.playerScore.ToString();
+           
+            isPaused = true;
         }
         
-        gameOverMenu.visible = true;
-        isPaused = true;
+       
 
        
     }
